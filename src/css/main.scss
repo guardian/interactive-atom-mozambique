@@ -10,4 +10,65 @@
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
+
+    pre {
+        font-family: $f-serif-text;
+        width: 94%;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+
+        @include mq($from: tablet) {
+            width: 100%;
+        }
+    }
+}
+
+.gh-swimming-header {
+    height: 80vh;
+    width: 100%;
+
+    .gh-swimming-image {
+        height: 80vh;
+        width: 100%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: -280px;
+        }
+    }
+}
+
+.gh-swimming-drop-cap {
+    float: left;
+    width: 84px;
+    margin-top: 5px;
+    margin-right: 6px;
+
+    svg {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.gh-swimming-image-block {
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 1px;
+    }
+}
+
+.gh-swimming-quote {
+    font-family: $f-serif-headline;
+    font-weight: 900;
 }
