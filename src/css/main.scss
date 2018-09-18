@@ -1,5 +1,6 @@
 @import "mq";
 @import "fonts";
+@import "palette";
 
 // Uncomment for embeds
 //@import "embed";
@@ -10,65 +11,783 @@
 .element-atom,
 .interactive-atom {
     margin: 0 !important;
+    color: #121212;
+    overflow-x: hidden;
 
     pre {
         font-family: $f-serif-text;
-        width: 94%;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 17px;
+        line-height: 24px;
         white-space: pre-wrap;
         white-space: -moz-pre-wrap;
         white-space: -o-pre-wrap;
         word-wrap: break-word;
 
         @include mq($from: tablet) {
-            width: 100%;
+            margin: 3px 0 6px 0;
+        }
+
+        &.pull-up-on-desktop {
+            @include mq($from: leftCol) {
+                margin-top: -56px;
+            }
+
+            &.block-2 {
+                @include mq($from: leftCol) {
+                    margin-top: -55px;
+                }
+            }
+
+            &.block-5 {
+                @include mq($from: leftCol){
+                    margin-top: -100px;
+                }
+            }
+        }
+
+        &.gh-drop-cap {
+            &:first-letter {
+              color: #c70000;
+              float: left;
+              font-family: $f-headline-full;
+              font-weight: 900;
+              font-size: 84px;
+              line-height: 60px;
+              padding-top: 2px;
+              padding-right: 8px;
+          }
+        }
+
+        .ital {
+            font-style: italic;
+
+            a {
+                color: #c70000;
+            }
+        }
+
+        figure {
+            line-height: 0;
+            font-size: 0;
         }
     }
 }
 
-.gh-swimming-header {
-    height: 80vh;
+.meta__extras {
+    padding-left: 3%;
+    padding-right: 3%;
+    border-top: none;
+    border-bottom: 1px solid #cccccc;
+
+    @include mq($from: tablet) {
+        padding-right: 0;
+        margin-left: -9px;
+        padding-left: 12px;
+        margin-bottom: 12px;
+    }
+
+    @include mq($from: leftCol) {
+        padding: 0;
+        border: none;
+        position: absolute;
+        margin-left: -130px;
+        z-index: 3000;
+    }
+}
+
+.meta__social {
+    border: none;
+
+    .social {
+        padding-top: 6px;
+        height: 42px;
+    }
+
+    .social__item {
+        .inline-icon {
+            background-color: transparent;
+            border: 1px solid #c70000;
+
+            svg {
+                path {
+                    fill: #c70000;
+                }
+            }
+
+            &:hover {
+                background-color: #c70000;
+
+                svg {
+                    path {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ios, .android {
+    background-color: white;
+
+    .gh-moz-social {
+        display: none;
+    }
+
+    .gh-swimmming-standfirst {
+        .content__main-column {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+//set widths of elements
+.gh-moz-quote, pre {
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mq($from: tablet) {
+        width: 100%;
+    }
+}
+
+.gh-moz-main {
+    .content__main-column {
+        &:before {
+            position: absolute;
+            top: -61px;
+            bottom: 0px;
+            background-color: #cccccc;
+            width: 1px;
+            content: '';
+            left: -10px;
+            display: none;
+
+            @include mq($from: tablet) {
+                display: block;
+            }
+
+            @include mq($from: leftCol) {
+                top: -3px;
+            }
+        }
+    }
+}
+
+.gh-moz-header {
     width: 100%;
 
-    .gh-swimming-image {
-        height: 80vh;
+    .gh-moz-image {
         width: 100%;
+        position: relative;
 
         img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            object-position: -280px;
+
+            @include mq($from: mobileLandscape) {
+                object-position: right;
+            }
+
+            @include mq($from: tablet) {
+                object-position: 0;
+            }
+
+            &.video-added {
+                @include mq($from: 730px) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .gh-moz-headline {
+        position: absolute;
+        width: 100%;
+        bottom: 176px;
+
+        @include mq($from: tablet) {
+            width: 68%;
+            top: 54.5%;
+            bottom: auto;
+            left: 4%;
+        }
+
+        @include mq($from: desktop) {
+            width: 60%;
+            top: 55%;
+            bottom: auto;
+            left: 5%;
+        }
+
+        @include mq($from: wide) {
+            width: 48%;
+            top: 59%;
+            bottom: auto;
+            left: 4%;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .gh-swimmming-standfirst {
+        width: 100%;
+
+        h1 {
+            color: #121212;
+            font-family: $f-headline-full;
+            font-size: 28px;
+            line-height: 32px;
+
+            @include mq($from: tablet) {
+                font-size: 42px;
+                line-height: 46px;
+            }
+        }
+
+        p {
+            font-weight: 900;
+            color: #121212;
+
+            a {
+                font-style: italic;
+                color: #c70000;
+            }
+        }
+
+        h2 {
+            font-family: $f-headline-full;
+            font-size: 22px;
+            line-height: 26px;
+            font-weight: 400;
+            margin-top: 18px;
+            position: relative;
+            margin-bottom: 24px;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 100%;
+                position: absolute;
+                top: -4px;
+                height: 1px;
+                background-color: #cccccc;
+                left: -10px;
+            }
+        }
+
+        .content__main-column {
+            width: 95%;
+
+            @include mq($from: tablet) {
+                width: auto;
+            }
+
+            &:before {
+                top: -13px;
+                bottom: -24px;
+                position: absolute;
+                left: -10px;
+                background-color: #cccccc;
+                content: '';
+                width: 1px;
+            }
         }
     }
 }
 
-.gh-swimming-drop-cap {
-    float: left;
-    width: 84px;
-    margin-top: 5px;
-    margin-right: 6px;
+.video-player {
+    display: none;
 
-    svg {
-        width: 100%;
-        height: auto;
+    @include mq($from: tablet) {
         display: block;
     }
 }
 
-.gh-swimming-image-block {
+.gh-moz-video__wrapper {
     width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    @include mq($from: tablet) {
+        width: 100%;
+        height: 70vh;
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gs-container {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 1000;
+        cursor: pointer;
+
+        .gh-moz__play {
+            border-radius: 100%;
+            background-color: #c70000;
+            height: 60px;
+            width: 60px;
+            margin-bottom: 24px;
+            float: left;
+            margin-left: 10px;
+
+            @include mq($from: desktop) {
+                height: 80px;
+                width: 80px;
+            }
+
+            &.hide {
+                display: none;
+            }
+
+            svg {
+                height: auto;
+                width: 26px;
+                margin-top: 20px;
+                margin-left: 20px;
+
+                @include mq($from: desktop) {
+                    width: 34px;
+                    margin-top: 26px;
+                    margin-left: 26px;
+                }
+
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+
+        .gh-moz__cta {
+            color: #fff;
+            font-weight: 700;
+            font-family: $f-headline-full;
+            font-size: 20px;
+            margin-top: 14px;
+            margin-left: 6px;
+            float: left;
+
+            @include mq($from: desktop) {
+                margin-top: 24px;
+            }
+
+            &.hide {
+                display: none;
+            }
+        }
+    }
+
+    .video-player.hide {
+        display: none;
+    }
+
+    iframe {
+        width: 100%;
+        min-height: 218px;
+
+        @include mq($from: desktop){
+            height: 70vh;
+        }
+    }
+}
+
+.youtube-replace {
+    &.hide {
+        display: none;
+    }
+}
+
+.gh-moz-image-block {
+    width: 100%;
+    position: relative;
+
+    @include mq($from: tablet) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @include mq($from: tablet) {
+        width: 740px;
+        margin-left: 0rem;
+    }
+
+    @include mq($from: desktop) {
+        width: 980px;
+        margin-left: 0rem;
+    }
+
+    @include mq($from: leftCol) {
+        width: 1140px;
+        margin-left: -10rem;
+    }
+
+    @include mq($from: wide) {
+        width: 1300px;
+        margin-left: -15rem;
+    }
 
     img {
         width: 100%;
         height: auto;
         display: block;
         margin-bottom: 1px;
+
+        @include mq($from: tablet) {
+            display: flex;
+        }
+    }
+
+    //specific block styles
+    &.block-1 {
+        .gh-moz-image-wrapper.image-2{
+            @include mq($from: tablet) {
+                border-bottom: 1px solid #cccccc;
+            }
+        }
+
+        .gh-moz-quote {
+            @include mq($from: tablet) {
+                position: absolute;
+                bottom: 76px;
+                right: 0px;
+                width: 49%;
+            }
+            @include mq($from: desktop) {
+                bottom: 58px;
+            }
+            @include mq($from: leftCol) {
+                bottom: 114px;
+                width: 49%;
+            }
+            @include mq($from: wide) {
+                bottom: 78px;
+                right: 0px;
+            }
+        }
+    }
+
+    &.block-2 {
+        .gh-moz-image-wrapper {
+            @include mq($from: tablet) {
+                flex-basis: 26.5%;
+            }
+
+            @include mq($from: leftCol) {
+                flex-basis: 13.2%;
+                align-self: flex-end;
+            }
+            @include mq($from: wide) {
+                flex-basis: 17.7%;
+            }
+        }
+        .gh-moz-image-wrapper.image-2 {
+            @include mq($from: tablet) {
+                flex-basis: 66%;
+            }
+
+            @include mq($from: leftCol) {
+                flex-basis:82%;
+                align-self: flex-start;
+            }
+        }
+    }
+
+    &.block-3 {
+        display: flex;
+        flex-direction: column;
+        @include mq($from: tablet) {
+            flex-direction: row;
+        }
+        .gh-moz-image-wrapper {
+            flex-basis: 49%;
+            align-self: flex-end;
+        }
+        .gh-moz-image-wrapper.image-5 {
+            flex-basis:50.8%;
+
+            @include mq($from: tablet) {
+                margin-top: -120px;
+            }
+            @include mq($from: desktop) {
+                margin-top: -200px;
+            }
+            @include mq($from: leftCol) {
+                margin-top: -250px;
+            }
+            @include mq($from: wide) {
+                margin-top: -270px;
+            }
+        }
+        .gh-moz-quote {
+            margin-bottom: 24px;
+            background-color: #fff;
+            flex-basis: 100%;
+
+            @include mq($from: tablet) {
+                margin-bottom: 0px;
+                flex-basis: 49%;
+            }
+
+            &.quote-4 {
+                margin-bottom: 0px;
+            }
+
+            span {
+                display: block;
+
+                @include mq($from: tablet){
+                    padding-left: 10px;
+                }
+            }
+
+            &:before {
+                @include mq($from: tablet){
+                    margin-left: 10px;
+                }
+            }
+
+            &.quote-4 {
+                @include mq($until: tablet) {
+                    order: 5;
+                }
+            }
+        }
+
+        .gh-moz-quote {
+            @include mq($from: tablet) {
+                border-top: 1px solid #cccccc;
+            }
+        }
+
+        .gh-moz-quote.quote-4 {
+            border-top: 0;
+            @include mq($from:tablet) {
+                border-bottom: 1px solid #cccccc;
+            }
+        }
+    }
+    &.block-4 {
+        .gh-moz-image-wrapper.image-7 {
+            flex-basis: 73.5%;
+        }
+        .gh-moz-image-container {
+            flex-basis: 25.7%;
+
+            .gh-moz-image-wrapper {
+                width: 100%;
+            }
+
+            &.left {
+                @include mq($from: tablet) {
+                    margin-right: 1px;
+                    margin-top: -1px;
+                }
+            }
+        }
+
+        .gh-moz-quote {
+            @include mq($from: tablet) {
+                position: absolute;
+                top: 207px;
+                right: 270px;
+                width: 40%;
+            }
+        }
+    }
+    &.block-5 {
+        .gh-moz-image-wrapper {
+            width: 100%;
+            flex-basis: 100%;
+            height: auto;
+
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 }
 
-.gh-swimming-quote {
-    font-family: $f-serif-headline;
+iframe {
+
+    &.moz-map {
+        width: 100%;
+        border: 0;
+        height: 470px;
+        @include mq($from: tablet){
+            width: 100%;
+            height: 420px;
+        }
+    }
+}
+
+img.video-added {
+    @include mq($from: 730px) {
+        display: none;
+    }
+}
+
+.gh-end-video {
+    video, img {
+        width: 100%;
+        @include mq($from: leftCol) {
+            width: 150%;
+        }
+    }
+}
+
+.gh-moz-image-wrapper {
+    @include mq($from: tablet){
+        width: 50%;
+        flex-basis: 49.8%;
+        margin-right: 1px;
+    }
+
+    img.video-added {
+        @include mq($from: 730px) {
+            display: none;
+        }
+    }
+
+    video {
+        display: block;
+        height: auto;
+        width: 100%;
+        transform: translateY(-1px);
+    }
+}
+
+.gh-moz-quote {
+    font-family: $f-headline-full;
     font-weight: 900;
+    font-size: 20px;
+    line-height: 26px;
+
+    @include mq($from: desktop) {
+        font-size: 30px;
+        line-height: 33px;
+    }
+    @include mq($from: wide) {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    &:before {
+        display: block;
+        content: '';
+        float: left;
+        background: url(data:image/svg+xml,%3Csvg%20width%3D%2241%22%20height%3D%2226%22%20viewBox%3D%220%200%2041%2026%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M41%200c-.9%208.5-1.7%2016.6-2.1%2026H21.2A65%2065%200%200%201%2031.6%200H41zM19.8%200c-.8%208.5-1.7%2016.6-2%2026H0A63.4%2063.4%200%200%201%2010.3%200h9.5z%22%20fill%3D%22%232295CE%22%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        width: 26px;
+        height: 26px;
+        margin-right: 4px;
+
+        @include mq($from: desktop) {
+            width: 33px;
+            height: 33px;
+            margin-left: 0px;
+        }
+
+        @include mq($from: leftCol) {
+            width: 35px;
+            height: 33px;
+        }
+
+        @include mq($from: wide) {
+            width: 43px;
+            height: 40px;
+        }
+    }
+
+    &.gh-quote-svg {
+        position: absolute;
+        top: 360px;
+        left: 3%;
+
+        @include mq($from: tablet) {
+            left: 240px;
+            top: 280px;
+        }
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.gh-moz-caption {
+    padding-left: 3%;
+    padding-top: 3px;
+    padding-bottom: 16px;
+    position: relative;
+    font-family:$f-sans-serif-text;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 15px;
+    width: 100%;
+
+    @include mq($from: tablet) {
+        padding-left: 0px;
+        padding-right: 6px;
+    }
+
+    @include mq($from: leftCol) {
+        padding-left: 6px;
+        border-top: 0px;
+        width: 137px;
+        border-left: 1px solid #cccccc;
+        border-right: 1px solid #cccccc;
+    }
+
+    @include mq($from: wide) {
+        width: 217px;
+    }
+
+    &:before {
+        display: block;
+        content: '';
+        float: left;
+        background: url(data:image/svg+xml,%3Csvg%20width%3D%2233%22%20height%3D%2233%22%20viewBox%3D%220%200%2033%2033%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Ccircle%20fill%3D%22%23121212%22%20cx%3D%2216.5%22%20cy%3D%2216.5%22%20r%3D%2216.5%22/%3E%3Cpath%20d%3D%22M25%2012.1v8.7L23.9%2022H9.2L8%2020.8v-8.7L9.2%2011H13l2-2h3l2%202h3.9l1.1%201zm-8.5%207.7c2%200%203.5-1.6%203.5-3.5a3.5%203.5%200%200%200-7%200c0%202%201.6%203.5%203.5%203.5z%22%20fill%3D%22%23FFF%22/%3E%3C/g%3E%3C/svg%3E);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        width: 28px;
+        height: 28px;
+        margin-right: 4px;
+    }
+
+    &:after {
+        display: block;
+        content: '';
+        height: 1px;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        left: 3%;
+        background-color: #cccccc;
+        display: none;
+
+        @include mq($from: tablet) {
+            left: 0px;
+        }
+        @include mq($from: leftCol) {
+            display: block;
+        }
+    }
 }
