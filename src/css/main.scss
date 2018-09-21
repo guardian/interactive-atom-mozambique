@@ -29,18 +29,18 @@
 
         &.pull-up-on-desktop {
             @include mq($from: leftCol) {
-                margin-top: -56px;
+                margin-top: -75px;
             }
 
             &.block-2 {
                 @include mq($from: leftCol) {
-                    margin-top: -55px;
+                    margin-top: -75px;
                 }
             }
 
             &.block-5 {
                 @include mq($from: leftCol){
-                    margin-top: -100px;
+                    margin-top: -60px;
                 }
             }
         }
@@ -71,6 +71,13 @@
             font-size: 0;
         }
     }
+}
+
+.mobile-only-view {
+  display: inline-block;
+  @include mq($from: mobileLandscape) {
+    display: none;
+  }
 }
 
 .meta__extras {
