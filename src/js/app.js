@@ -69,7 +69,7 @@ function playYoutube() {
     var playbutton = document.querySelector('.gh-moz__play');
     var replace = document.querySelector('.youtube-replace');
     var videoWrapper = document.querySelector('.gh-moz-video__wrapper');
-    var src = 'https://www.youtube.com/embed/zzdhnOJ5rcs?autoplay=1'; 
+    var src = 'https://www.youtube.com/embed/IgmFn-suAi4?autoplay=1'; 
     var youtubePlayer = '<iframe width="560" height="315" src="'+ src +'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     var youTubeDiv = document.createElement('div');
     var cta = document.querySelector('.gh-moz__cta');
